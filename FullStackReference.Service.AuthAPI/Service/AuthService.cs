@@ -79,9 +79,10 @@ namespace FullStackReference.Service.AuthAPI.Service
                 Email = registrationRequestDto.Email,
                 NormalizedEmail = registrationRequestDto.Email.ToUpper(),
                 Name = registrationRequestDto.Name,
-                PhoneNumber = registrationRequestDto.PhoneNumber
+                PhoneNumber = registrationRequestDto.PhoneNumber,
                
-          };
+
+            };
 
             try
             {
@@ -96,6 +97,7 @@ namespace FullStackReference.Service.AuthAPI.Service
                         ID = userToReturn.Id,
                         Name = userToReturn.Name,
                         PhoneNumber = userToReturn.PhoneNumber,
+                        
                     };
 
                     return "";
