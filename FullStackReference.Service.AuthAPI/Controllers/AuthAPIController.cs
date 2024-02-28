@@ -1,5 +1,4 @@
-﻿
-using FullStackReference.Service.AuthAPI.Models.Dto;
+﻿using FullStackReference.Service.AuthAPI.Models.Dto;
 using FullStackReference.Service.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +28,7 @@ namespace FullStackReference.Service.AuthAPI.Controllers
         {
 
             var errorMessage = await _authService.Register(model);
-           
+
             if (!string.IsNullOrEmpty(errorMessage) )
             {
                 _response.IsSuccess = false;
