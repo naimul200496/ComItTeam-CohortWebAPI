@@ -1,10 +1,12 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using ReferenceRequestController.Models;
-using ReferenceRequestController.Services;
+using FullStackReference.ReferenceRequests.Service;
+using FullStackReference.ReferenceRequests.Models;
 
-namespace ReferenceRequestController.Controllers
+
+namespace FullStackReference.ReferenceRequests.Controllers
+
 {
     //attributes and controller declaration
     [Route("api")]
@@ -81,8 +83,8 @@ namespace ReferenceRequestController.Controllers
         {
             try
             {
-                var mentorReferenceRequests =
-                    await _referenceRequestsService.GetMentorReferenceRequest(mentorId);
+                var mentorReferenceRequests = await _referenceRequestService.GetMentorReferenceRequest(mentorId);
+
                 return Ok(mentorReferenceRequests);
             }
             catch (Exception ex)

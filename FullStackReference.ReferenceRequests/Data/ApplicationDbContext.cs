@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using FullStackReference.ReferenceRequests.Models;
 
-namespace FullStackReference.ReferenceRequest.Data
+namespace FullStackReference.ReferenceRequests.Data
 {
     public class ApplicationDbContext : DbContext
     {
@@ -10,8 +11,8 @@ namespace FullStackReference.ReferenceRequest.Data
             : base(options) { }
 
         public DbSet<ReferenceRequest> ReferenceRequest { get; set; }
-
-        // Add other DbSet properties for your entities if needed
+        public DbSet<User> Users { get; set; }
+        public DbSet<PostContent> PostContents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
