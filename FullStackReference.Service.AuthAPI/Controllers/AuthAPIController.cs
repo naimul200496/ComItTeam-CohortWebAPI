@@ -1,4 +1,5 @@
-﻿using FullStackReference.Service.AuthAPI.Models.Dto;
+﻿
+using FullStackReference.Service.AuthAPI.Models.Dto;
 using FullStackReference.Service.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -28,7 +29,7 @@ namespace FullStackReference.Service.AuthAPI.Controllers
         {
 
             var errorMessage = await _authService.Register(model);
-
+           
             if (!string.IsNullOrEmpty(errorMessage) )
             {
                 _response.IsSuccess = false;
@@ -64,19 +65,19 @@ namespace FullStackReference.Service.AuthAPI.Controllers
 
         }
 
-        [HttpPost("AssignRole")]
-        public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto model)
-        {
-            var assignRoleSuccessful = await _authService.AssignRole(model.Email, model.Role.ToUpper());
-            if (!assignRoleSuccessful)
-            {
-                _response.IsSuccess = false;
-                _response.Message = "Error encountered";
-                return BadRequest(_response);
-            }
-            return Ok(_response);
+        //[HttpPost("AssignRole")]
+        //public async Task<IActionResult> AssignRole([FromBody] RegistrationRequestDto model)
+        //{
+        //    var assignRoleSuccessful = await _authService.AssignRole(model.Email,model.Role.ToUpper());
+        //    if (!assignRoleSuccessful)
+        //    {
+        //        _response.IsSuccess = false;
+        //        _response.Message = "Error encountered";
+        //        return BadRequest(_response);
+        //    }
+        //    return Ok(_response);
 
-        }
+        //}
 
 
     }
